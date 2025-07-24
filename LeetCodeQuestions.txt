@@ -189,3 +189,159 @@ Constraints:
 0 <= num[i] <= 9
 num does not contain any leading zeros except for the zero itself.
 1 <= k <= 104
+
+
+
+LeetCode_1464>> MAXIMUM PRODUCT of TWO ELEMENTS in an ARRAY
+Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
+
+    Example 1:
+
+    Input: nums = [3,4,5,2]
+    Output: 12 
+    Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12.
+
+    Example 2:
+
+    Input: nums = [1,5,4,5]
+    Output: 16
+    Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
+
+    Example 3:
+
+    Input: nums = [3,7]
+    Output: 12
+
+Constraints:
+    2 <= nums.length <= 500
+    1 <= nums[i] <= 10^3
+
+
+
+LeetCode_4>> MEDIAN of TWO SORTED ARRAYS
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+    Example 1:
+
+    Input: nums1 = [1,3], nums2 = [2]
+    Output: 2.00000
+    Explanation: merged array = [1,2,3] and median is 2.
+
+    Example 2:
+
+    Input: nums1 = [1,2], nums2 = [3,4]
+    Output: 2.50000
+    Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+
+Constraints:
+    nums1.length == m
+    nums2.length == n
+    0 <= m <= 1000
+    0 <= n <= 1000
+    1 <= m + n <= 2000
+    -106 <= nums1[i], nums2[i] <= 106
+
+
+LeetCode_268>> MISSING NUMBER
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+    Example 1:
+
+    Input: nums = [3,0,1]
+    Output: 2
+    Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+    Example 2:
+
+    Input: nums = [0,1]
+    Output: 2
+    Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+
+    Example 3:
+
+    Input: nums = [9,6,4,2,3,5,7,0,1]
+    Output: 8
+    Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+
+Constraints:
+    n == nums.length
+    1 <= n <= 104
+    0 <= nums[i] <= n
+    All the numbers of nums are unique.
+ 
+
+Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
+
+
+
+  LeetCode_27>> PROBLEM LIST
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+    * Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+    * Return k.
+
+Custom Judge:
+
+    The judge will test your solution with the following code:
+
+    int[] nums = [...]; // Input array
+    int val = ...; // Value to remove
+    int[] expectedNums = [...]; // The expected answer with correct length.
+                                // It is sorted with no values equaling val.
+
+    int k = removeElement(nums, val); // Calls your implementation
+
+    assert k == expectedNums.length;
+    sort(nums, 0, k); // Sort the first k elements of nums
+    for (int i = 0; i < actualLength; i++) {
+        assert nums[i] == expectedNums[i];
+    }
+    If all assertions pass, then your solution will be accepted.
+
+    Example 1:
+
+    Input: nums = [3,2,2,3], val = 3
+    Output: 2, nums = [2,2,_,_]
+    Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+    It does not matter what you leave beyond the returned k (hence they are underscores).
+
+    Example 2:
+
+    Input: nums = [0,1,2,2,3,0,4,2], val = 2
+    Output: 5, nums = [0,1,4,0,3,_,_,_]
+    Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Constraints:
+    0 <= nums.length <= 100
+    0 <= nums[i] <= 50
+    0 <= val <= 100
+
+
+
+
+LeetCode_977>> SQUARES of a SORTED ARRAY
+Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+    Example 1:
+
+    Input: nums = [-4,-1,0,3,10]
+    Output: [0,1,9,16,100]
+    Explanation: After squaring, the array becomes [16,1,0,9,100].
+    After sorting, it becomes [0,1,9,16,100].
+
+    Example 2:
+
+    Input: nums = [-7,-3,2,3,11]
+    Output: [4,9,9,49,121]
+
+Constraints:
+    1 <= nums.length <= 104
+    -104 <= nums[i] <= 104
+    nums is sorted in non-decreasing order.
