@@ -29,6 +29,27 @@ Follow up: Could you implement a solution that runs in O(n) time complexity and 
 import java.util.Scanner;
 
 public class LeetCode_334 {
+    private static boolean Solution(int[] nums)
+    {
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
+
+        for(int i=0; i<nums.length; i++)
+        {
+            // gives the shorter element compared to the previous and next values
+            if(first >= nums[i])
+                first = nums[i];
+            // loops comes here if the next element is larger than the previous(first) element
+            else if(second >= nums[i])
+                second = nums[i];
+            // loops comes here if the next element is larger than the previous(second) element
+            else
+                return true;
+        }
+
+        return false;
+    }
+
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
@@ -43,7 +64,7 @@ public class LeetCode_334 {
             nums[i] = sc.nextInt();
         }
         
-        int result = Solution(nums);
+        boolean result = Solution(nums);
         System.out.print("Result: " + result);
 
         sc.close();
