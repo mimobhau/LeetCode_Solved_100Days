@@ -24,9 +24,57 @@ Constraints:
 import java.util.Scanner;
 
 public class LeetCode_75 {
+    private static void Swap(int[] nums, int a, int b)
+    {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+
     private static void Solution(int[] nums)
     {
+        /*
+         * this algorithm is called "Dutch National Flag"
+         * let, low = 0
+         *      mid = 0
+         *      high = n -1
+         
+         * CASE I-
+              if(mid = 0) => swap(low, mid), low++, mid++
+         
+         * CASE II-
+              if(mid = 1) => mid++
+         
+         * CASE III-
+              if(mid = 2) => swap(hihg, mid), mid--
+         
+         * this segregates the 0's towards left, 2's towards right and 1's in the middle in one pass
+         */
+
+         int low = 0, mid = 0;
+         int high = nums.length - 1;
         
+         while(mid <= high)
+         {
+            if(nums[mid] == 0)
+            {
+                Swap(nums, low, mid);
+                low++;
+                mid++;
+            }
+            else if(mid == 1)
+                mid++;
+            else            // when, nums[mid] == 2
+            {
+                Swap(nums, high, mid);
+                high--;
+            }
+         }
+
+         for(int i=0; i<nums.length; i++)
+         {
+            System.out.print(nums[i] + " ");
+         }
     }
 
     public static void main(String args[])
