@@ -24,12 +24,55 @@ Constraints:
     -109 <= nums[i] <= 109
 */
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class LeetCode_128 {
     private static int Solution(int[] nums)
     {
+        // creating a HashMap that stores all the numbers in the 'nums[]' array, with the initial value 'false'
+        HashMap<Integer, Boolean> hm = new HashMap<>();
 
+        // inserting the numbers in the HashMap
+        for(int i=0; i<nums.length; i++)
+        {
+            hm.put(nums[i], false);
+        }
+
+        // checks for each number if it is the start of a consecutive sequence; by checking if there its previous numbers exists
+        // if it does not exist, then it is the start of a consecutive sequence (set to 'true')
+        for(int key: hm.keySet())
+        {
+            if(hm.containsKey(key-1) == false)
+                hm.put(key, true);
+        }
+
+        // max length of consecutive sequence
+        int max = 0;
+
+        /*
+         * '.keySet()' --> returns a set view of the keys contained in this map.
+         * '.containsKey()' -->  method checks if the specified key is present in the map.
+         * '.get()' --> returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+         */
+
+        for(int key: hm.keySet())
+        {
+            int k=1;
+            // checks if the current number is the start of a consecutive sequence (true)
+            if(hm.get(key) == true)
+            {
+                // if it is, then it checks for the next consecutive numbers (increments 'max')
+                while(hm.containsKey(key+k) == true)
+                {
+                    k++;
+                }
+            }
+            // checks which sequence is the longest
+            max = Math.max(max, k);
+        }
+
+        return max;
     }
     
     public static void main(String args[])
